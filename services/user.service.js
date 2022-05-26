@@ -14,8 +14,8 @@ class UserService {
   }
 
   async find() {
-    const query = 'SELECT * FROM task';
-    const rta = await this.pool.query(query);
+    const client = await getConnection();
+    const rta = await client.query('SELECT * FROM task');
     return rta.rows;
   }
 
